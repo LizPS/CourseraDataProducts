@@ -2,8 +2,10 @@
 library(shiny)
 library(ggplot2)
 library(reshape2)
+library(scales)
 source("thy.R")
-instructTxt <- "<p>This is where the  <em>instructions</em> go.</p>"
+aboutTxt <- paste(readLines("about.txt"), collapse=' ')
+instructTxt <- paste(readLines("instruct.txt"), collapse=' ')
 
 
 shinyServer(function(input, output, session){
@@ -15,12 +17,11 @@ shinyServer(function(input, output, session){
         
         newEntry <- observe({
                 if(input$update > 0) {
-                        newLine <- isolate(list(as.character.Date(input$Date),
+                        newLine <- isolate(list(as.character(input$Date),
                                                 as.numeric(input$TSH),
                                                 as.numeric(input$T4),
                                                 as.numeric(input$T3)))
                         myvalues$df <- isolate(rbind(myvalues$df, newLine))
-                        #isolate(myvalues$df[nrow(myvalues$df) + 1, ] <- newLine)
                 }
         })
 
@@ -29,6 +30,7 @@ shinyServer(function(input, output, session){
                         class(myvalues$df)
                 })
         output$instruct <- renderText({instructTxt})
+        output$about <- renderText({aboutTxt})
         output$graph <- renderPlot ({
         #everything in here changes each time a user changes a widget that this output relies on
                 newdf <- data.frame(myvalues$df)

@@ -9,8 +9,6 @@
                
  t_graph <- function(tdat, showtx, treatdate=as.Date("2012-01-01")){
         datedf <- data.frame(treatdate) #put treatdate in df so ggplot can find it!
-        
-        print(tdat)
 
         #Sub-functions to standardize test values
         stdTSH <-function(x) {
@@ -35,7 +33,6 @@
         tdat$Date <- as.Date(tdat$Date, format="%Y-%m-%d")
         
         #Standardize test scores and add to dataframe
-        print(class(tdat$TSH))
         tdat$sTSH <- sapply(tdat$TSH,stdTSH)
         tdat$sT3 <- sapply(tdat$FreeT3, stdT3)
         tdat$sT4 <- sapply(tdat$FreeT4, stdT4)

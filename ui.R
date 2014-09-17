@@ -1,6 +1,6 @@
 library(shiny)
 
-shinyUI(fluidPage(
+shinyUI(fluidPage(theme="bootstrap.css",
 	titlePanel("How am I doing?"),
 	fluidRow(
                 column(3, wellPanel(
@@ -23,11 +23,12 @@ shinyUI(fluidPage(
         			dateInput(inputId ="TxDate", label = "Date Treatment Began")),
                         actionButton("update", "Update Table")
 	)),
-	column(6,
+	column(8,
 		tabsetPanel(type = "tabs",
                         tabPanel("Instructions", htmlOutput("instruct")),
-			tabPanel("Your Results", plotOutput("graph")), #verbatimTextOutput("testing")),
-			tabPanel("Your Data", tableOutput("txtable"))
+                        tabPanel("Your Results", plotOutput("graph")), #verbatimTextOutput("testing")),
+			tabPanel("Your Data", tableOutput("txtable")),
+                        tabPanel("About Grave\'s Disease", htmlOutput("about"))
 		)
 	)
 )))
