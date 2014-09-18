@@ -1,7 +1,7 @@
 #set values for testing this graphing function
         #library(ggplot2)
         #library(reshape2)
-        #library(shiny)
+        #library(scales)
         #tdat <- read.table("thyroid.txt", sep=",",stringsAsFactors=FALSE, header=TRUE)
 
 
@@ -54,7 +54,7 @@
                 labs(color="Test Type", title="Your Test Results") +
                 scale_y_continuous(breaks=c(-2,0,2,4),
                         labels=c("low average","average","high average","high"),
-                        name="") +
+                        name="", limits = c(-2.5, 4.5)) +
                 geom_line(size = 1.5)
         
         if (showtx == 0){

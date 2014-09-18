@@ -1,6 +1,6 @@
 library(shiny)
 
-shinyUI(fluidPage(theme="bootstrap.css",
+shinyUI(fluidPage(theme="cerulean.css",
 	titlePanel("How am I doing?"),
 	fluidRow(
                 column(3, wellPanel(
@@ -28,7 +28,7 @@ shinyUI(fluidPage(theme="bootstrap.css",
                         tabPanel("Instructions", htmlOutput("instruct")),
                         tabPanel("Your Results", plotOutput("graph")), #verbatimTextOutput("testing")),
 			tabPanel("Your Data", tableOutput("txtable")),
-                        tabPanel("About Grave\'s Disease", htmlOutput("about"))
+                        tabPanel("About Graves\' Disease", htmlOutput("about"))
 		)
 	)
 )))
