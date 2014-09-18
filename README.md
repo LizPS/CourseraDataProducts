@@ -3,7 +3,7 @@ CourseraDataProducts
 
 This repo contains code and supporting documents for the Coursera/JHU Data Products course project. The application is hosted on ShinyApps at http://lizps.shinyapps.io/CourseraDataProducts.
 
-The file named 'sampledata.txt' is an example of the information a typical patient might have available to them to enter into the application. Feel free to use it when testing the application.
+The file named 'sampledata.txt' is an example of the information a typical patient might have available to them to enter into the application. It includes the same information as in the table below. Feel free to use it when testing the application.
 
 <html>
 </head>
@@ -100,3 +100,5 @@ The file named 'sampledata.txt' is an example of the information a typical patie
 </table>
 </body>
 </html>
+
+Treatment Date: 2012-11-10
