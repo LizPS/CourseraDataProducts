@@ -5,7 +5,7 @@ This repo contains code and supporting documents for the Coursera/JHU Data Produ
 
 The file named 'sampledata.txt' is an example of the information a typical patient might have available to them to enter into the application. It includes the same information as in the table below. Feel free to use it when testing the application.
 
-**Treatment Date:** 2012-11-10
+**Treatment Date:** 2012-10-14
 
 <html>
 </head>
