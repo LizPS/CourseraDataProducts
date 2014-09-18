@@ -5,36 +5,7 @@ This repo contains code and supporting documents for the Coursera/JHU Data Produ
 
 The file named 'sampledata.txt' is an example of the information a typical patient might have available to them to enter into the application. Feel free to use it when testing the application.
 
-<style media="screen" type="text/css">
-	#styled-table
-	{
-		font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
-		font-size: 12px;
-		background: #fff;
-		margin: 45px;
-		width: 480px;
-		border-collapse: collapse;
-		text-align: left;
-	}
-	#styled-table th
-	{
-		font-size: 14px;
-		font-weight: normal;
-		color: #039;
-		padding: 10px 8px;
-		border-bottom: 2px solid #6678b1;
-	}
-	#styled-table td
-	{
-		border-bottom: 1px solid #ccc;
-		color: #669;
-		padding: 6px 8px;
-	}
-	#styled-table tbody tr:hover td
-	{
-		color: #009;
-	}
-</style>
+
 </head>
 <body>
 <table id="styled-table" summary="Patient Sample Data">
