@@ -1,0 +1,79 @@
+--- 
+title       : How am I doing?
+subtitle    : a webapp for patients with Graves' disease
+author      : Liz Supinski
+job         : Coursera/JHU Developing Data Products
+framework   : io2012        # {io2012, html5slides, shower, dzslides, ...}
+highlighter : highlight.js  # {highlight.js, prettify, highlight}
+hitheme     : tomorrow      # 
+widgets     : [mathjax, quiz]            # {mathjax, quiz, bootstrap}
+mode        : selfcontained # {standalone, draft}
+knit        : slidify::knit2slides
+
+--- bg:url(assets/img/md_pa5.png)
+
+### Introduction  
+
+Graves' disease is a type of primary hyperthyroidism caused by autoimmunity. 
+
+Patients with Graves' require frequent thyroid testing and lifelong followup
+even after successful treatment as relapse rates are high, as is hypothyroidism
+induced by treatment.
+
+In the U.S., the prevalence of electronic medical records means that patients
+often receive test results directly from the lab, without explanation by a
+healthcare provider.
+
+This application is intended to let patients visualize their test data, see if
+they are responding to treatment as expected and identify when they need to seek
+medical advice. It also provides a tool for doctors and patients to discuss
+results of treatment.
+
+---
+
+### Patient Input
+
+Here is an example of the kind of data a patient might receive from the 
+laboratory. This patient was tentatively diagnosed in August 2012 and began treatment
+Oct 14, 2012.
+
+```{r table, echo= FALSE, results = 'asis', comment = NA}
+sampledata <- read.csv("sampledata.csv", sep=",",stringsAsFactors=FALSE, header=TRUE)
+library(xtable)
+options(xtable.type = 'HTML')
+xtable(sampledata)
+```
+
+--- &twocol
+
+### Interface example
+
+*** =left
+<img src=".\assets\img\screen.png" style="width:274px;height:353px">
+
+*** =right
+```{r plot2, fig.height = 4, echo=FALSE, fig.align = 'center', warning = F}
+require(ggplot2)
+require(reshape2)
+require(scales)
+source("thy.R")
+#a little data cleanup that is usually managed by the app and/or user
+sampledata$Date <- as.Date(sampledata$Date, format="%m/%d/%Y")
+sampledata$TSH[2:3] <- c(0.002,0.002)
+sampledata$TSH <- as.numeric(sampledata$TSH)
+t_graph(sampledata,1,as.Date("2012-10-14"))
+```
+<p>Patients enter their data on the left side of the screen and can use a tabbed interface to see either instructions, some basic information about Graves disease, a table of the data as they enter it or a graph of the entered data.</p>
+
+--- bg:url(assets/img/smile4.png)
+
+### Behind the scenes 
+
+The application normalizes the test scores that patient report so that they can
+all be displayed on the same graph. A numeric axis is replaced with a green-
+colored band indicating normal range. (For these tests, like virtually all 
+medical tests, normal range is $\pm 2 $ standard deviations.) 
+
+We hope that this application will provide a valuable tool for patients and 
+physicians to discuss the course of treatment and progress, and reassure patients
+about test data between doctor's visits. 
